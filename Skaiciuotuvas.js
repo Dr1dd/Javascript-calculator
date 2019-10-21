@@ -212,10 +212,14 @@ function regexSearch(tempValue){
 	searchsquared = tempValue.match(/[0-9]+\^[0-9]+/);
 	console.log(tempValue);
 	if(searchsquared != null ) tempValue = tempValue.replace(/[0-9]+\^[0-9]+/, convert(searchsquared[0]));
+	if(tempValue.match(/\/0/) != null || tempValue.match(/0\//) != null) tempValue = "Negalima dalyba iš nulio";
+	var searchOperandFront;
+	searchOperandFront = tempValue.match(/^\+[0-9]+/);
+	if(tempValue.match(/^\+[0-9]+/) !=null) tempValue = tempValue.replace(/^\+[0-9]+/, searchOperandFront[0].substr(1));
 	return tempValue;
 }
 function resultop() {
-	if(input.value.charAt(input.value.length-1) != '='){
+	if(input.value.charAt(input.value.length-1) != '=' && input.value.length >0){
 	input.value += '=';
 	tempValue += '';
 	result = "";
@@ -227,59 +231,64 @@ function resultop() {
 	if(tempValue.length <1) tempValue = input.value;
 
 	tempValue = regexSearch(tempValue);
-
 	console.log(tempValue);
-
-
-	if() 
-
-	for(var i = 0; i < tempValue.length; i++){
-		if(isNaN(tempValue.charAt(i))){
-			//console.log(tempValue.charAt(i));
-		//	if(tempValue.charAt(i) == '+' || tempValue.charAt(i) == '-' || tempValue.charAt(i) == '*' ||  tempValue.charAt(i) == '/') {
-				oper.push(tempValue.charAt(i));
-				firstop.push(tempValue.substr(tempAt, i));
-				console.log(tempValue.charAt(i));
-				tempAt =i+1;			
-			//}
-
-			
-		}
-	}
-	var len 
-	len = oper.length;
-	if(oper.length < 1) {
-		result = parseFloat(tempValue);
+	if(tempValue == "Negalima dalyba iš nulio") {
+		result = "Negalima dalyba iš nulio";
+		var output = document.getElementById('output');
+		output.value = result;
+		console.log(result);
+		result = "";
 	}
 	else{
-				for(var j = 0; j < len; j++){
-						if(j == 0 ) result = firstop[0];
-						console.log(firstop[j+1]);
-					switch(oper[j]){
-						case '+':
-							result =parseFloat(result) +parseFloat(firstop[j+1]);
-							break;
-						case '-':
-							result =parseFloat(result) -parseFloat(firstop[j+1]);
-							break;
-						case '*':
-							result =parseFloat(result) *parseFloat(firstop[j+1]);
-							break;
-						case '/':
-							result =parseFloat(result) /parseFloat(firstop[j+1]);
-							break;
-						case '^':
-							result = Math.pow(parseFloat(result),parseFloat(firstop[j+1])); 
-							break;
-					}
 
-				}
+		for(var i = 0; i < tempValue.length; i++){
+			if(isNaN(tempValue.charAt(i))){
+				//console.log(tempValue.charAt(i));
+			//	if(tempValue.charAt(i) == '+' || tempValue.charAt(i) == '-' || tempValue.charAt(i) == '*' ||  tempValue.charAt(i) == '/') {
+					oper.push(tempValue.charAt(i));
+					firstop.push(tempValue.substr(tempAt, i));
+					console.log(tempValue.charAt(i));
+					tempAt =i+1;			
+				//}
+
+				
 			}
-	
-	var output = document.getElementById('output');
-	output.value = result;
-	console.log(result);
-	result = "";
+		}
+		var len 
+		len = oper.length;
+		if(oper.length < 1) {
+			result = parseFloat(tempValue);
+		}
+		else{
+					for(var j = 0; j < len; j++){
+							if(j == 0 ) result = firstop[0];
+							console.log(firstop[j+1]);
+						switch(oper[j]){
+							case '+':
+								result =parseFloat(result) +parseFloat(firstop[j+1]);
+								break;
+							case '-':
+								result =parseFloat(result) -parseFloat(firstop[j+1]);
+								break;
+							case '*':
+								result =parseFloat(result) *parseFloat(firstop[j+1]);
+								break;
+							case '/':
+								result =parseFloat(result) /parseFloat(firstop[j+1]);
+								break;
+							case '^':
+								result = Math.pow(parseFloat(result),parseFloat(firstop[j+1])); 
+								break;
+						}
+
+					}
+				}
+		
+		var output = document.getElementById('output');
+		output.value = result;
+		console.log(result);
+		result = "";
+	}
 }
 }
 function clearText(){
@@ -296,10 +305,11 @@ function clearText(){
     tempValue = "";
 }
 function deleteInput(){
-	var input = document.getElementById('input');
-	var v = input.value;
-	if(v.length >0){
-		v.substring(0, v.length-1);
-		input.value = v;
+	input = document.getElementById('input');
+	if(input.value.charAt(input.value.length-1) == '=') {
+		input.value = "";
+		tempValue = "";
+		result = "";
 	}
+	else input.value = input.value.slice(0, input.value.length-1); 
 }
