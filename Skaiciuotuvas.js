@@ -205,6 +205,7 @@ function regexSearch(tempValue){
 	var searchRoot = new String();
 	var searcRootnth = new String();
 	var searchsquared = new String();
+
 	searchRoot = tempValue.match(/√[0-9]+/);
 	console.log(searchRoot);
 	if(searchRoot != null ) tempValue = tempValue.replace(/√[0-9]+/, convert(searchRoot[0]));
@@ -212,10 +213,16 @@ function regexSearch(tempValue){
 	searchsquared = tempValue.match(/[0-9]+\^[0-9]+/);
 	console.log(tempValue);
 	if(searchsquared != null ) tempValue = tempValue.replace(/[0-9]+\^[0-9]+/, convert(searchsquared[0]));
+
 	if(tempValue.match(/\/0/) != null || tempValue.match(/0\//) != null) tempValue = "Negalima dalyba iš nulio";
-	var searchOperandFront;
+
+	var searchOperandFrontPlus;
 	searchOperandFront = tempValue.match(/^\+[0-9]+/);
-	if(tempValue.match(/^\+[0-9]+/) !=null) tempValue = tempValue.replace(/^\+[0-9]+/, searchOperandFront[0].substr(1));
+	if(tempValue.match(/^\+[0-9]+/) !=null) tempValue = tempValue.replace(/^\+[0-9]+/, searchOperandFrontPlus[0].substr(1));
+
+	var searchOperandFrontMinus;
+	searchOperandFrontMinus = tempValue.match(/^\-[0-9]+/);
+	if(tempValue.match(/^\-[0-9]+/) !=null) tempValue = tempValue.replace(/^\-[0-9]+/, "0"+searchOperandFrontMinus[0]);
 	return tempValue;
 }
 function resultop() {
