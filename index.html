@@ -20,9 +20,9 @@
 	  		</button>
 	  		<button class="btn number" onclick="number(9)"> 9
 	  		</button>
-	  		<button class="btn" onclick="roots('(')"> (
+	  		<button class="btn" onclick="advancedOperators('(')"> (
 	  		</button>
-	  		<button class="btn" onclick="roots(')')"> )
+	  		<button class="btn" onclick="advancedOperators(')')"> )
 	  		</button>
 	  		<button class="btn" onclick="operand('%')"> %
 	  		</button>
@@ -34,11 +34,10 @@
 	  		</button>
 	  		<button class="btn" onclick="operand('^')"> x<sup>y</sup>
 	  		</button>
-	  		<button class="btn" onclick="roots('√')">&#8730;
+	  		<button class="btn" onclick="advancedOperators('√')">&#8730;
 	  		</button>
 	  		<button class="btn">
-	  			<img src="nth.png" style="width: 4vh;
-    			height: 6vh;" onclick="operand('nth')">
+	  			<img src="nth.png" class="img" onclick="advancedOperators('√')">
 	  		</button>
 	  		<button class="btn number" onclick="number(1)"> 1
 	  		</button>
@@ -54,11 +53,11 @@
 	  		</button>
 	  		<button class="btn number" onclick="number(0)"> 0
 	  		</button>
-	  		<button class="btn number" style="width: 9vh;" onclick="operand('.')"> .
+	  		<button class="btn point number" onclick="operand('.')"> .
 	  		</button>
-	  		<button class="btn" style="width: 17vh;" onclick="resultop()"> =
+	  		<button class="btn equals" id="equals" onclick="resultOutput()"> =
 	  		</button>
-	  		<button class="btn" onclick="deleteInput()"> ←
+	  		<button class="btn" onclick="deleteInputByOne()"> ←
 	  		</button>
 	  		<button class="btn" onclick="clearText()"> C
 	  		</button>

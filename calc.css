@@ -2,7 +2,7 @@ body{
 	background-color: #1b1b19bf;
 }
 .calcBlock{
-    width: 100vh;
+    max-width: 100vh;
     margin: 10vh auto;
     height: 80vh;
     background-color: #e8ffa2a3;
@@ -11,7 +11,7 @@ body{
 	flex-direction: column;
 }
 .output{
-    width: 85vh;
+    max-width: 85%;
     height: 15vh;
     margin: 25px auto;
     background-color: #ffffff;
@@ -36,12 +36,21 @@ body{
 	    outline: none;
 	    box-shadow: 0px 3px 0px 0px #222121, inset -2px 0px 0px 1px #515151;
 }
-	}
+.btn.equals{
+    width:20%;
+}
+.btn.point{
+    width:10%;
+}
 .btn.number{
 	background-color: #dcdcdc;
 }
+.img{
+    width: 4vh;
+    height: 6vh
+}
 input[type=text]{
-	width: 80vh;
+	max-width: 80%;
     height: 3vh;
     font-size: 3em;
     padding: 15px;
@@ -52,3 +61,80 @@ input[type=text]{
 }
 
 
+@media all and (max-width: 1255px){
+    .btn{
+        font-size: 4vw;
+        width:15%;
+        height: 28%;
+    }
+    .buttonBlock{
+        width:95%;
+    }
+    .output{
+        max-width: 95%;
+    }
+    input[type=text]{
+        max-width: 95%;
+    }
+}
+@media all and (max-width: 1036px){
+    .btn{
+        height: 34%;
+    }
+
+}
+ @media all and (max-width: 834px){
+    .btn{
+        width: 14%;
+        height: 37%;
+    }
+    .btn.equals{
+        width: 18%
+    }
+    .output{
+        max-width: 87%;
+    }
+}
+@media all and (max-width: 635px){
+    .output{
+        max-width: 87%;
+    }
+    input[type=text] {
+    max-width: 87%;
+    }
+    .btn {
+    width: 14%;
+    height: 46%;
+    }
+}
+@media all and (max-width: 415px){
+    .btn {
+    margin:4px;
+    }
+}
+@media all and (max-width: 360px){
+    .calcBlock{
+        height: 59vh;
+    }
+    .btn{
+        height: 53%;
+        margin:2px;
+    }
+    .img{
+        width: 2vh;
+        height: 3vh;
+    }
+    input[type=text] {
+        max-width: 75%;
+     }
+}
+
+
+@media all and (max-height: 640px){
+    .calcBlock{
+        height: 74vh
+    }
+     input[type=text] {
+    max-width: 89%;
+    }
+}
