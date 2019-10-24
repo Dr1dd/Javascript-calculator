@@ -96,6 +96,10 @@ function operand(op){
 		case '^':
 			input.value += '^';
 			operator = '^';
+			break;
+		case '.':
+			input.value += '.';
+			break;
 		}
 	}
 	operatorArray.push(operator);
@@ -145,6 +149,9 @@ function calculate(string){
 	var temp = 0;
 	var tempAt = 0;
 	string += '=';
+		var searchOperandFrontMinus;
+	searchOperandFrontMinus = string.match(/[^0-9]+-[0-9]+/);
+	if(string.match(/[^0-9]+-[0-9]+/) !=null) string = string.replace(/[^0-9]+-[0-9]+/, "0"+searchOperandFrontMinus[0]);
 	console.log(string.length);
 	for(var i = 0; i < string.length; i++){
 		if(isNaN(string.charAt(i))) {
@@ -192,9 +199,15 @@ function convert(string){
 		if(isNaN(string[i])){
 			switch(string[i]){
 				case '^':
+					console.log(string);
 					string = Math.pow(parseFloat(string.substr(0, i)), parseFloat(string.substr(i+1, string.length-1)));
 					break;
+				case '√':
+					string = Math.pow(Math.abs(parseInt(string.substr(i+1, string.length-1), 10)), 1/parseInt(string.substr(0, i),10));
+
+					break;
 			}
+			//Math.pow(parseInt(string.substr(i+1, string.length-1)), 1/parseInt(string.substr(0, i)));
 		}
 	}
 
@@ -203,16 +216,16 @@ function convert(string){
 }
 function regexSearch(tempValue){
 	var searchRoot = new String();
-	var searcRootnth = new String();
+	var searchRootnth = new String();
 	var searchsquared = new String();
 
 	searchRoot = tempValue.match(/√[0-9]+/);
 	console.log(searchRoot);
-	if(searchRoot != null ) tempValue = tempValue.replace(/√[0-9]+/, convert(searchRoot[0]));
+	if(searchRoot != null ) tempValue = tempValue.replace(/[^0-9]+√[0-9]+/, convert(searchRoot[0]));
 
-	searchsquared = tempValue.match(/[0-9]+\^[0-9]+/);
+	searchsquared = tempValue.match(/[0-9.]+\^[0-9.]+/);
 	console.log(tempValue);
-	if(searchsquared != null ) tempValue = tempValue.replace(/[0-9]+\^[0-9]+/, convert(searchsquared[0]));
+	if(searchsquared != null ) tempValue = tempValue.replace(/[0-9.]+\^[0-9.]+/, convert(searchsquared[0]));
 
 	if(tempValue.match(/\/0/) != null || tempValue.match(/0\//) != null) tempValue = "Negalima dalyba iš nulio";
 
@@ -223,7 +236,11 @@ function regexSearch(tempValue){
 	var searchOperandFrontMinus;
 	searchOperandFrontMinus = tempValue.match(/^\-[0-9]+/);
 	if(tempValue.match(/^\-[0-9]+/) !=null) tempValue = tempValue.replace(/^\-[0-9]+/, "0"+searchOperandFrontMinus[0]);
+
+	searchRootnth = tempValue.match(/[0-9]+√[0-9]+/);
+	if(tempValue.match(/[0-9]+√[0-9]+/) !=null) tempValue = tempValue.replace(/[0-9]+√[0-9]+/, +convert(searchRootnth[0]));
 	return tempValue;
+
 }
 function resultop() {
 	if(input.value.charAt(input.value.length-1) != '=' && input.value.length >0){
@@ -250,12 +267,17 @@ function resultop() {
 
 		for(var i = 0; i < tempValue.length; i++){
 			if(isNaN(tempValue.charAt(i))){
-				//console.log(tempValue.charAt(i));
-			//	if(tempValue.charAt(i) == '+' || tempValue.charAt(i) == '-' || tempValue.charAt(i) == '*' ||  tempValue.charAt(i) == '/') {
+				if(tempValue.charAt(i) == '.'){
+					i++;
+				}
+				else{
+
 					oper.push(tempValue.charAt(i));
 					firstop.push(tempValue.substr(tempAt, i));
 					console.log(tempValue.charAt(i));
 					tempAt =i+1;			
+				}				//console.log(tempValue.charAt(i));
+			//	if(tempValue.charAt(i) == '+' || tempValue.charAt(i) == '-' || tempValue.charAt(i) == '*' ||  tempValue.charAt(i) == '/') {
 				//}
 
 				
