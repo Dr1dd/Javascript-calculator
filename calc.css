@@ -5,6 +5,7 @@ body{
     max-width: 100vh;
     margin: 10vh auto;
     height: 80vh;
+    min-height: 83vh;
     background-color: #e8ffa2a3;
     border-radius: 15px;
     display:flex;
@@ -31,6 +32,7 @@ body{
     height: 11vh;
 	margin: 5px;
 	border-radius: 9px;
+    max-height: 13vh;
 	border-image: initial;
 	font-size: 3em;
 	    outline: none;
@@ -53,6 +55,7 @@ input[type=text]{
 	max-width: 80%;
     height: 3vh;
     font-size: 3em;
+    max-height: 2vh;
     padding: 15px;
     background-color: #ffffff;
     border-width: 0px;
@@ -74,7 +77,7 @@ input[type=text]{
         max-width: 95%;
     }
     input[type=text]{
-        max-width: 95%;
+        max-width: 94%;
     }
 }
 @media all and (max-width: 1036px){
@@ -106,15 +109,28 @@ input[type=text]{
     width: 14%;
     height: 46%;
     }
+    .img{
+     width: 3vh;
+    height: 4vh;
+    }
 }
-@media all and (max-width: 415px){
+@media all and (max-width: 430px){
     .btn {
     margin:4px;
+    }
+    .img{
+    width: 2vh;
+    height: 3vh;
+    }
+    .calcBlock{
+        height: 73vh;
+        min-height: 73vh
     }
 }
 @media all and (max-width: 360px){
     .calcBlock{
         height: 59vh;
+        min-height: 64vh;
     }
     .btn{
         height: 53%;
@@ -132,9 +148,48 @@ input[type=text]{
 
 @media all and (max-height: 640px){
     .calcBlock{
-        height: 74vh
+        height: 74vh;
     }
      input[type=text] {
-    max-width: 89%;
+       max-width: 89%;
+    }
+    .btn{
+        width: 14%;
     }
 }
+@media all and (max-height: 550px){
+  .output {
+    max-width: 89%;
+    }
+  input[type=text] {
+     max-width: 93%;
+    }
+  .btn {
+     height: 33%;
+}
+}
+@media all and (max-height: 460px){
+  .output {
+    max-width: 94%;
+    }
+  input[type=text] {
+     height: 0vh;
+    font-size: 2em;
+    max-width: 91%;
+    }
+  .btn {
+    height: 32%;
+    font-size: 2vw;
+    width: 13%;
+    }
+    .btn.equals {
+    width: 16%;
+    }
+}
+@media all and (min-height: 1000px){
+    .calcBlock{
+    height: 62vh;
+    min-height: 60vh;
+    }
+}
+

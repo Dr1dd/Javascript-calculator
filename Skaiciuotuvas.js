@@ -205,7 +205,8 @@ function calculate(string){
 	return rez;
 }
 function convert(string){
-
+	var firstHalf;
+	var secondHalf;
 //	if(string.match(/nth/)!=null) string = string.replace(/nth/, '√');
 	for(var i = 0; i < string.length;i++){
 		if(isNaN(string[i])){
@@ -219,8 +220,12 @@ function convert(string){
 					if(string.charAt(0)=='√'){
 					 string = Math.pow(parseFloat(string.substr(i+1, string.length-1)), 1/2);
 					} 
-					else string = Math.pow(parseFloat(string.substr(i+1, string.length-1)), 1/parseFloat(string.substr(0, i),10));
-					console.log(string);
+					else{
+						firstHalf = parseFloat(string.substr(i+1, string.length-1))
+						secondHalf =parseFloat(string.substr(0, i));
+						string = Math.pow(firstHalf, 1/secondHalf);
+						 if(Math.pow(string, secondHalf) != firstHalf) string = Math.round(string);
+						} 
 					break;
 			}
 		}
@@ -229,7 +234,6 @@ function convert(string){
 
 	return string;
 }
-
 function regexSearch(tempValue){
 	var searchRoot = new String();
 	var searchRootnth = new String();
