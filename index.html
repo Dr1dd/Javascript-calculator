@@ -14,55 +14,69 @@
   			<input type="text" id="output" readonly="readonly" >
   		</div>
   		<div class="buttonBlock">
-	  		<button class="btn number" onclick="number(7)"> 7
-	  		</button>
-	  		<button class="btn number" onclick="number(8)"> 8
-	  		</button>
-	  		<button class="btn number" onclick="number(9)"> 9
-	  		</button>
-	  		<button class="btn" onclick="advancedOperators('(')"> (
-	  		</button>
-	  		<button class="btn" onclick="advancedOperators(')')"> )
-	  		</button>
-	  		<button class="btn" onclick="operand('%')"> %
-	  		</button>
-	  		<button class="btn number" onclick="number(4)"> 4
-	  		</button>
-	  		<button class="btn number" onclick="number(5)"> 5
-	  		</button>
-	  		<button class="btn number" onclick="number(6)"> 6
-	  		</button>
-	  		<button class="btn" onclick="operand('^')"> x<sup>y</sup>
-	  		</button>
-	  		<button class="btn" onclick="advancedOperators('√')">&#8730;
-	  		</button>
-	  		<button class="btn">
-	  			<img src="nth.png" class="img" onclick="advancedOperators('√')">
-	  		</button>
-	  		<button class="btn number" onclick="number(1)"> 1
-	  		</button>
-	  		<button class="btn number" onclick="number(2)"> 2
-	  		</button>
-	  		<button class="btn number"  onclick="number(3)"> 3
-	  		</button>
-	  		<button class="btn" onclick="operand('+')"> +
-	  		</button>
-	  		<button class="btn" onclick="operand('-')"> -
-	  		</button>
-	  		<button class="btn" onclick="operand('*')"> *
-	  		</button>
-	  		<button class="btn number" onclick="number(0)"> 0
-	  		</button>
-	  		<button class="btn point number" onclick="operand('.')"> .
-	  		</button>
-	  		<button class="btn equals" id="equals" onclick="resultOutput()"> =
-	  		</button>
-	  		<button class="btn" onclick="deleteInputByOne()"> ←
-	  		</button>
-	  		<button class="btn" onclick="clearText()"> C
-	  		</button>
-	  		<button class="btn" onclick="operand('/')"> /
-	  		</button>
+  			<div class = "buttonBlock firstHalf">
+	  			<div class = "buttonBlock half color">
+			  		<button class="btn leftSide" onclick="number(7)"> 7
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(8)"> 8
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(9)"> 9
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(4)"> 4
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(5)"> 5
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(6)"> 6
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(1)"> 1
+			  		</button>
+			  		<button class="btn leftSide" onclick="number(2)"> 2
+			  		</button>
+			  		<button class="btn leftSide"  onclick="number(3)"> 3
+			  		</button>
+		  		</div>
+		  		<div class = "buttonBlock half">
+			  		<button class="btn rightSide" onclick="advancedOperators('(')"> (
+			  		</button>
+			  		<button class="btn rightSide" onclick="advancedOperators(')')"> )
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('%')"> %
+			  		</button>
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('^')"> x<sup>y</sup>
+			  		</button>
+			  		<button class="btn rightSide" onclick="advancedOperators('√')">&#8730;
+			  		</button>
+			  		<button class="btn rightSide">
+			  			<img src="nth.png" class="img" onclick="advancedOperators('√')">
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('s')"> x<sup>2</sup>
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('r')"> x<sup>3</sup>
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('+')"> +
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('-')"> -
+			  		</button>
+			  		<button class="btn rightSide" onclick="operand('*')"> *
+			  		<button class="btn" onclick="operand('/')"> /
+			  		</button>
+
+			  		</button>
+		  		</div>
+	  		</div>
+	  		<div class = "buttonBlock secondHalf">
+		  		<button class="btn number" onclick="number(0)"> 0
+		  		</button>
+		  		<button class="btn point number" onclick="operand('.')"> .
+		  		</button>
+		  		<button class="btn equals" id="equals" onclick="resultOutput()"> =
+		  		</button>
+		  		<button class="btn delete" onclick="deleteInputByOne()"> ←
+		  		</button>
+		  		<button class="btn" onclick="clearText()"> C
+		  		</button>
+	  		</div>
 
   		</div>
 

@@ -105,6 +105,12 @@ function operand(op){
 		case '%':
 			input.value += '%';
 			break;
+		case 's':
+			input.value += '^2';
+			break;
+		case 'r':
+			input.value += '^3';
+			break;
 		}
 	}
 	}
@@ -224,7 +230,7 @@ function convert(string){
 						firstHalf = parseFloat(string.substr(i+1, string.length-1))
 						secondHalf =parseFloat(string.substr(0, i));
 						string = Math.pow(firstHalf, 1/secondHalf);
-						 if(Math.pow(string, secondHalf) != firstHalf) string = Math.round(string);
+						// if(Math.pow(string, secondHalf) != firstHalf) string = Math.round(string);
 						} 
 					break;
 			}
@@ -247,9 +253,9 @@ function regexSearch(tempValue){
 	while(found!=0){
 		found = 0;
 		
-	searchRootnth = tempValue.match(/[0-9.]+√[-0-9.]+/);
-	if(tempValue.match(/[0-9.]+√[-0-9.]+/) !=null) {
-		tempValue = tempValue.replace(/[0-9.]+√[-0-9.]+/, +convert(searchRootnth[0]));
+	searchRootnth = tempValue.match(/(|-)[0-9.]+√[-0-9.]+/);
+	if(tempValue.match(/(|-)[0-9.]+√[-0-9.]+/) !=null) {
+		tempValue = tempValue.replace(/(|-)[0-9.]+√[-0-9.]+/, +convert(searchRootnth[0]));
 		found++;
 	}
 	searchRoot = tempValue.match(/√[-0-9.]+/);
@@ -257,10 +263,10 @@ function regexSearch(tempValue){
 		tempValue = tempValue.replace(/√[-0-9.]+/, convert(searchRoot[0]));
 		found++;
 	}
-	searchsquared = tempValue.match(/[0-9.-]+\^[0-9.-]+/);
+	searchsquared = tempValue.match(/(|-)[0-9.]+\^(|-)[0-9.]+/);
 	console.log(tempValue);
 	if(searchsquared != null ) {
-		tempValue = tempValue.replace(/[0-9.-]+\^[0-9.-]+/, convert(searchsquared[0]));
+		tempValue = tempValue.replace(/(|-)[0-9.]+\^(|-)[0-9.]+/, convert(searchsquared[0]));
 		found++;
 	}
 	console.log(tempValue);

@@ -5,14 +5,14 @@ body{
     max-width: 100vh;
     margin: 10vh auto;
     height: 80vh;
-    min-height: 83vh;
-    background-color: #e8ffa2a3;
+    min-height: 87vh;
+    background-color: #dd7575de;
     border-radius: 15px;
     display:flex;
 	flex-direction: column;
 }
 .output{
-    max-width: 85%;
+    max-width: 87%;
     height: 15vh;
     margin: 25px auto;
     background-color: #ffffff;
@@ -26,13 +26,25 @@ body{
 	width: 88vh;
     margin: 0 auto;
 }
+.buttonBlock.firstHalf{
+}
+.buttonBlock.secondHalf{
+
+}
+.buttonBlock.half{
+    width:50%;
+}
+.buttonBlock.color{
+        background-color: indianred;
+    border-radius: 16px;
+}
 .btn{
 	background-color: #ffffff;
 	width: 13vh;
     height: 11vh;
 	margin: 5px;
 	border-radius: 9px;
-    max-height: 13vh;
+    max-height: 15vh;
 	border-image: initial;
 	font-size: 3em;
 	    outline: none;
@@ -41,11 +53,21 @@ body{
 .btn.equals{
     width:20%;
 }
+.btn.delete{
+    width: 28vh;
+}
 .btn.point{
     width:10%;
 }
 .btn.number{
 	background-color: #dcdcdc;
+}
+.btn.leftSide{
+background-color: #dcdcdc;
+height: 14vh;
+}
+.btn.rightSide{
+
 }
 .img{
     width: 4vh;
@@ -63,7 +85,7 @@ input[type=text]{
     outline: none;
 }
 
-
+/*
 @media all and (max-width: 1255px){
     .btn{
         font-size: 4vw;
@@ -98,98 +120,95 @@ input[type=text]{
         max-width: 87%;
     }
 }
-@media all and (max-width: 635px){
-    .output{
-        max-width: 87%;
-    }
-    input[type=text] {
-    max-width: 87%;
-    }
-    .btn {
-    width: 14%;
-    height: 46%;
-    }
-    .img{
-     width: 3vh;
+*/
+@media all and (max-width: 666px){
+.btn.leftSide{
+    height:13vh;
+}
+.btn{
+    width: 11vw;
+    font-size: 1.5em;
+}
+.buttonBlock.half{
+    width:44vw;
+    margin: 0;
+}
+.buttonBlock{
+    width:88vw;
+}
+.btn.delete{
+    width: 21vh;
+}
+}
+@media all and (max-width: 515px){
+
+.btn{
+    height: 8vh
+}
+.btn.leftSide{
+    height: 10vh
+}
+.btn.delete{
+    width: 23vw;
+}
+.calcBlock{
+    min-height: 80vh;
+}
+    .img {
+    width: 4vw;
     height: 4vh;
-    }
 }
-@media all and (max-width: 430px){
-    .btn {
-    margin:4px;
-    }
-    .img{
-    width: 2vh;
-    height: 3vh;
-    }
-    .calcBlock{
-        height: 73vh;
-        min-height: 73vh
-    }
 }
-@media all and (max-width: 360px){
-    .calcBlock{
-        height: 59vh;
-        min-height: 64vh;
-    }
+@media all and (max-width: 335px){
+    .img {
+    width: 6vw;
+    height: 4vh;
+}
+.btn{
+    height: 5vh;
+    font-size: 1em
+}
+.btn.leftSide{
+    height: 6vh;
+}
+.calcBlock{
+    min-height: 64vh;
+    height:64vh;
+}
+}
+@media all and (max-height: 380px){
     .btn{
-        height: 53%;
-        margin:2px;
+        width: 3vw;
+        height: 9vh;
+        font-size: 1em;
     }
-    .img{
-        width: 2vh;
-        height: 3vh;
+    .btn.leftSide{
+        height: 12vh;
     }
-    input[type=text] {
-        max-width: 75%;
-     }
+    input[type=text]{
+        height:0vh;
+        font-size: 2em;
+        max-width: 91%;
+    }
 }
+@media all and (max-height: 608px){
+.btn{
+    width: 6vw;
+    font-size: 1em;
 
-
-@media all and (max-height: 640px){
-    .calcBlock{
-        height: 74vh;
-    }
-     input[type=text] {
-       max-width: 89%;
-    }
-    .btn{
-        width: 14%;
-    }
 }
-@media all and (max-height: 550px){
-  .output {
-    max-width: 89%;
-    }
-  input[type=text] {
-     max-width: 93%;
-    }
-  .btn {
-     height: 33%;
-}
-}
-@media all and (max-height: 460px){
-  .output {
-    max-width: 94%;
-    }
-  input[type=text] {
-     height: 0vh;
-    font-size: 2em;
-    max-width: 91%;
-    }
-  .btn {
-    height: 32%;
-    font-size: 2vw;
-    width: 13%;
-    }
-    .btn.equals {
-    width: 16%;
-    }
 }
 @media all and (min-height: 1000px){
-    .calcBlock{
-    height: 62vh;
-    min-height: 60vh;
+    .buttonBlock{
+        width: 65vh;
+    }
+    .btn.delete{
+        width: 21vh;
+    }
+    .btn.leftSide{
+        height:14vh;
+    }
+    .btn{
+        width:9vh;
     }
 }
-
